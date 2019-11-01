@@ -2,7 +2,8 @@
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/cabinets)](https://CRAN.R-project.org/package=cabinets)
-[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+![](http://cranlogs.r-pkg.org/badges/grand-total/cabinets)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![Travis build status](https://travis-ci.org/nt-williams/cabinets.svg?branch=master)](https://travis-ci.org/nt-williams/cabinets)
 [![Codecov test coverage](https://codecov.io/gh/nt-williams/cabinets/branch/master/graph/badge.svg)](https://codecov.io/gh/nt-williams/cabinets?branch=master)
 <!-- badges: end -->
@@ -13,7 +14,9 @@
 
 ## Installation
 
-`cabinets` can be installed using `devtools::install_github("nt-williams/cabinets")`.
+
+
+`cabinets` can be installed from CRAN using `install.packages("cabinets")`. The development version can be installed using `devtools::install_github("nt-williams/cabinets")`.
 
 ### But, why? 
 
@@ -61,14 +64,15 @@ create_cabinet(name = "contract_x",
                directory = cabinet_loc, 
                structure = cabinet_str)
                
-#> Checking for permissions... OK
-#> Checking working directory... OK
-#> Checking for .Rprofile... OK
-#> Checking cabinet name... OK
+#> Permission granted.
+#> Checking for .Rprofile...
+#> .Rprofile not found.
+#> Creating .Rprofile...
+#> Checking cabinet name... 
 #> Cabinet .contract_x created... Restarting R.
 #> Cabinet can be called using: .contract_x
-
-Restarting R session...
+#> 
+#> Restarting R session...
 ```
 
 The cabinet is now created and doesn't have to be redfined in future R sessions. To examine the cabinet we just call it.
@@ -94,8 +98,8 @@ The cabinet is now created and doesn't have to be redfined in future R sessions.
 new_cabinet_proj(cabinet = .contract_x, 
                  project_name = "project_1")
 
-#> Checking cabinet existence... OK
-#> Checking if project already exists... OK
+#> Checking cabinet existence...
+#> Checking if project already exists...
 #> Creating project_1 using cabinet template: .contract_x 
 #> 
 #> R project settings:
@@ -113,6 +117,7 @@ new_cabinet_proj(cabinet = .contract_x,
 #> AutoAppendNewline: Yes
 #> StripTrailingWhitespace: Yes 
 #> Opening new R project, project_1
+#> 
 #> ✔ Opening '/Users/nickwilliams/cabinet_test/project_1/' in new RStudio session
 ```
 
