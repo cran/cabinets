@@ -71,7 +71,7 @@ check_permissions <- function() {
 check_r_profile <- function() {
     file_stat <- !file.exists(file.path(normalizePath("~"), ".Rprofile"))
 
-    perm_yes <- function() {
+    new_rprof <- function() {
         message("Creating .Rprofile...")
         r_profile <- file.path(normalizePath("~"), ".Rprofile")
         file.create(r_profile)
@@ -84,12 +84,31 @@ check_r_profile <- function() {
         writeLines(permission, r_profile)
     }
 
-    message("Checking for .Rprofile...")
+    old_rprof <- function() {
+        r_profile_path <- file.path(normalizePath("~"), ".Rprofile")
+        rprof_lines <- readLines(r_profile_path)
+        perm_status <- any(grepl("cabinets_options_set", rprof_lines))
+
+        permission <- glue::glue(
+            "# cabinets permission
+            cabinets::cabinets_options_set('cabinets.permission' = TRUE)"
+        )
+
+        if (perm_status) {
+            on.exit()
+        } else {
+            r_profile <- file(r_profile_path, open = "a")
+            writeLines(permission, r_profile)
+            close(r_profile)
+        }
+    }
+
     status <- tryCatch(if (file_stat) {
-        message(".Rprofile not found.")
-        perm_yes()
+        message("Checking for .Rprofile... .Rprofile not found.")
+        new_rprof()
     } else {
-        on.exit()
+        message("Checking for .Rprofile...")
+        old_rprof()
     })
     invisible(status)
 }
@@ -142,4 +161,20 @@ check_project <- function(proj_path) {
         }
     )
     invisible(status)
+}
+
+check_git <- function() {
+    message("Checking for git configuration... ")
+
+    files <- git2r::git_config_files()
+    git_stat <- is.na(files[3, "path"])
+    config_stat <- git2r::config()
+
+    if (git_stat || length(config_stat) == 0) {
+        status <- FALSE
+    } else {
+        status <- TRUE
+    }
+
+    return(status)
 }

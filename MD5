@@ -1,11 +1,11 @@
-8dad2f718e191fdf2b968fa9416a78cd *DESCRIPTION
+c26fc06f64bd881d9195c19dbfcf5593 *DESCRIPTION
 937455f53f6ef8aa6cda5ca3957b6f43 *LICENSE
 90e10d13f5489db19e623640452ffa7a *NAMESPACE
+73ebbaf8a8efdc32662461ca98a3706c *NEWS.md
 b6a80d22993e216f7432ebf1682f29a9 *R/cabinets-package.R
-4604097c1208667aa5bea47a397c4f2d *R/cabinets.R
-b948a441ed64d938b6d8353e54ce9cdb *R/checks.R
-ba6c5868198b55460a1f96fe6e0de3f0 *R/utils.R
-b4e4093b3ca3352bbdb659b83bc435e5 *README.md
+62d0ed657b77d5eeda16203a102d4297 *R/cabinets.R
+acf61494ba9a15c49cf8cd97c3c61add *R/checks.R
+519ac15c1026c25b333534d0ba916e90 *R/utils.R
 b1310dbb0f5add75941f113d6504ffa7 *man/FileCabinet.Rd
 59fa1a50bb341c980f7859ea897873ed *man/cabinets.Rd
 b9299a50f89f4e892d464557576c8846 *man/cabinets_options_set.Rd
@@ -13,7 +13,7 @@ b9299a50f89f4e892d464557576c8846 *man/cabinets_options_set.Rd
 0e70ec37e079f50d84bbea2c4e1b5c78 *man/create_r_proj.Rd
 d5c11cc341f6515cba90911d3dcb4784 *man/edit_r_profile.Rd
 24ae4170dacfb7e485ebce968f998fe3 *man/get_cabinets.Rd
-c748f40f29559c1b70cd4deced6f0c2b *man/new_cabinet_proj.Rd
+9ad9ad53bbc9d233f9e1a8d462fdcc27 *man/new_cabinet_proj.Rd
 4f206e051930313d285590990f512a0f *tests/testthat.R
 dbee192dbe923c1249715b94f89ca793 *tests/testthat/test-FileCabinet.R
 61c4c1a6483eca72b5bbdf94204ca9fd *tests/testthat/test-check_cabinet.R
